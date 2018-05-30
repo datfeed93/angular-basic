@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Lesson 1 - Modules</title>
+	<script src="angular.min.js"></script>
+	<style>
+		body{
+			font-size: 1.3em;
+		}
+	</style>
+</head>
+<body>
+	<h1>Lesson 1 - Modules</h1>
+	<ul>
+		<li>
+			An AngularJs Module defines as application.
+		</li>
+		<li>
+			The Module is a container for the different parts of an application.
+		</li>
+		<li>
+			The Module is a container for the application controllers.
+		</li>
+		<li>
+			Controllers always belong to a Module.
+		</li>
+	</ul>
+	<section>
+		<h2>
+			Creating a Module
+		</h2>
+		<div>
+			A Module is created by using AngularJs function <strong>angular.module</strong>
+		</div>
+		<div>
+			<!-- <div ng-app="myApp">
+				...
+			</div>
+			<script>
+				var app = angular.module('myApp',[]); 
+			</script> -->
+		</div>	
+		<ul>
+			<li>
+				The "myApp" parameter refers to an HTML element which the application will to run
+			</li>
+			<li>
+				Now, you can add controllers, directives, filters and more, to your AngularJs aplication
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2>
+			Adding a controller
+		</h2>
+		<div>
+			Add a controller in your application and refer to controller with <strong>ng-controller</strong> directive
+		</div>
+		<div>
+			<!-- <div ng-app="myApp" ng-controller="myController">
+				{{firstName + ' ' + lastName}}
+			</div>
+			<script>
+				var app = angular.module('myApp',[]);
+				app.controller('myController',function($scope){
+					$scope.firstName = 'dat';
+					$scope.lastName = 'feed';
+				}); 
+			</script> -->
+		</div>
+	</section>
+	<section>
+		<h2>Adding directive</h2>
+		<ul>
+			<li>
+				AngularJs has a set of built-in directives which you can add functionality to your application
+			</li>
+			<li>
+				In addition you can use the module to add your own directives to your application
+			</li>
+		</ul>
+		<div>
+			<!-- <div ng-app="myApp" datfeed-directive>
+
+			</div>
+			<script>
+				var app = angular.module('myApp',[]);
+				app.directive('datfeedDirective',function(){
+					return{
+						template: 'I am Datfeed, I am leaning Angular Js, I was made in a directive contructor'
+					}
+				}); 
+			</script> -->
+		</div>
+	</section>
+
+	<section>
+		<h2>Modules and Controllers in Files</h2>
+		<ul>
+			<li>
+				It is common in AngularJs applications to put the module and controllers in Javascript files
+			</li>
+			<li>
+				In this example, <strong>"myApp.js"</strong> contains a module defination, while <strong>"myController.js"</strong> contains the controller
+			</li>
+
+		</ul>
+		<div>
+			<div ng-app="myApp" ng-controller="myController">
+				{{firstName + " " + lastName}}
+			</div>
+			<script src="myApp.js"></script>
+			<script src="myController.js"></script>	
+		</div>
+		<ul>
+			<li>
+				<h2>myApp.js</h2>
+				<pre>
+					var app = angular.module('myApp',[]);
+				</pre>
+
+				<div style="background: #ffeb3b; padding:15px;">
+					<ul>
+						<li>
+							The [] parameter in the module definition can be used to define dependent modules
+						</li>
+						<li>
+							Without the [] parameter, you are not creating a new module, but retrieving a existing one.
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h2>myController.js</h2>
+				<pre>
+					app.controller('myController',function($scope){
+						$scope.firstName = 'dat';
+						$scope.firstName = 'feed';
+					});
+				</pre>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2>When to Load the Library </h2>
+		<div>
+			<ul>
+				<li>
+					While it is common in HTML applications to place scripts at the end of <strong>'body'</strong> element. It is recommended that you load the AngularJs Library either in the <strong>'head'</strong>
+					or at the start of the <strong>'body'</strong>
+				</li>
+				<li>
+					This is because calls to <code>angular.module</code> can only be complied after the library has been loaded
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- <div ng-app="myApp">
+		...
+	</div>
+	<script>
+		var app = angular.module('myApp',[]); 
+	</script> -->
+</body>
+</html>
