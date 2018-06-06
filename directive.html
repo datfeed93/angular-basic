@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Lesson 2 - Directives</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<h1>Lesson 2 - Directives</h1>
+	<ul>
+		<li>
+			Angular Js lets you extend HTML attributes called Driectives
+		</li>
+		<li>
+			Angular Js has a set of built-in directives which offers functionality to your application 
+		</li>
+		<li>
+			Angular Js also lets define your own directives 
+		</li>
+	</ul>
+
+	<section>
+		<h3>
+			Angular js directives are extend HTML attributes with the prefix <strong>ng-</strong>
+		</h3>
+		<ul>
+			<li>
+				The <strong>ng-app</strong> directive initializes an Angular Js application
+			</li>
+			<li>
+				The <strong>ng-init</strong> directive initializes application data
+			</li>
+			<li>
+				The <strong>ng-model</strong> directive binds the value of HTML controls (input, textarea, select) to application data
+			</li>
+		</ul>
+		
+	</section>
+
+	<section>
+		<h2>Example</h2>
+		<!-- <div ng-app="" ng-init="firstName='dat'">
+			<p>Name : <input type="text" ng-model="firstName"></p>
+			<p>You wrote: {{firstName}}</p>
+		</div> -->
+	</section>
+	<section>
+		<h2>Data Binding</h2>
+		<div>
+			<ul>
+				<li>
+					The <strong>{{firstName}}</strong> expression, in the example above is an Angular js data binding expression
+				</li>
+				<li>
+					Data binding in AngularJs bind AngularJs expression with AngularJs data
+				</li>
+				<li>
+					<strong>{{firstName}}</strong> is bound with <strong>ng-model="firstName"</strong>
+				</li>
+			</ul>
+		</div>
+		<div style="background: #ffeb3b; padding:15px;">
+			Using <strong>ng-init</strong> is not very common. You will learn how to initial data in the chapter about controllers
+		</div>
+	</section>
+
+	<section>
+		<!-- <h2>Repeating HTML Elements</h2>
+		<h3>The <strong>ng-repeat</strong> directive repeats an HTML element </h3>
+		<div ng-app="" ng-init="names=['trang','quyen','tam']">
+			<ul>
+				<li ng-repeat="x in names">
+					{{x}}
+				</li>
+			</ul>
+		</div> -->
+	</section>
+	<div style="background: #ffeb3b; padding:15px;">
+		AngularJs js pefect for database CRUD (Creat, Read, Update, Delete) applications.
+		Just imagine if these objects were recodes from a database
+	</div>
+
+	<section>
+		<h2>
+			Creat new directives
+		</h2>
+		<ul>
+			<li>
+				In addition to all of the built-in AngularJs directives, you can creat your own directives
+			</li>
+			<li>
+				New directive using <strong>.directive</strong> function
+			</li>
+			<li>
+				To invoke new directive, make an HTML element with the same tag name as the new directive
+			</li>
+			<li>
+				When naming a directive, you must use camel case name
+			</li>
+		</ul>
+
+		<h2>
+			Example
+		</h2>
+		<div ng-app="myApp">
+			<nguyen-tien-dat></nguyen-tien-dat>
+		</div>
+		<!-- <script>
+			var app = angular.module('myApp',[]);
+			app.directive('nguyenTienDat',function(){
+				return{
+					template: 'lalala'
+				}
+			});
+		</script> -->
+	</section>
+	<section>
+		<h2>
+			Recstrictions
+		</h2>
+		<div>
+			<h3>Example</h3>
+			<div>
+				By adding a recstrict property with the value <strong>A</strong>, the directive can only be invoked by attributes 
+			</div>
+			<div ng="myApp">
+				<h3 nguyen-tien-dat>
+					
+				</h3>
+			</div>
+			<script>
+				var app = angular.module('myApp',[]);
+				app.directive('nguyenTienDat',function(){
+					return{
+						recstrict: 'A',
+						template:'lilili'
+					}
+				});
+			</script>
+			<h3>
+				The legal restric values are: 
+			</h3>
+			<ul>
+				<li>
+					<strong>E</strong> : Element name
+				</li>
+				<li>
+					<strong>A</strong> : Atribute name
+				</li>
+				<li>
+					<strong>C</strong> : Class
+				</li>
+				<li>
+					<strong>M</strong> : Comment
+				</li>
+			</ul>
+		</div>
+	</section>
+</body>
+</html>
