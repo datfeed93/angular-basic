@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Controller</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<h1>AngularJs Controllers</h1>
+	<ul>
+		<li>
+			AngularJs controllers <strong>control the data </strong> of AngularJs application
+		</li>
+		<li>
+			AngularJs controllers are regular Javascript Object
+		</li>
+		<li>
+			AngularJs Application are controlled by controllers.
+		</li>
+		<li>
+			The <strong>ng-controller</strong> directive defines the application controller. 
+		</li>
+		<li>
+			A controller is a <strong>Javascript Object </strong>, created by a standard Javascript object constructor 
+		</li>
+	</ul>
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>firstName : <input type="text" ng-model="firstName"></p>
+		<p>lastName : <input type="text" ng-model="lastName"></p>
+		<p>
+			fullName: {{firstName + ' ' + lastName}}
+		</p>
+	</div>
+	<script>
+		var app = angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope){
+			$scope.firstName = 'dat';
+			$scope.lastName = 'feed';
+		});
+	</script> -->
+	<h3>
+		Application explained:
+	</h3>
+	<ul>
+		<li>
+			The AngularJs application is defined by <strong>ng-app='myApp'</strong>. The application runs inside the div tag
+		</li>
+		<li>
+			The <strong>ng-controller="myCtrl"</strong> attribute is Angular Js directive. It defines a controller
+		</li>
+		<li>
+			The myCtrl function js Javascript Function
+		</li>
+		<li>
+			AngularJs will invoke the controller with a <strong>$scope</strong> object.
+			$scope is application object (the owner of application variable and functions)
+		</li>
+		<li>
+			The controller creats two properties(variable) in the scope (firstName and lastName)
+		</li>
+		<li>
+			The <strong>ng-model</strong> drirectice bind the input field to the controller properties (firstName and lastName)
+		</li>
+	</ul>
+	<div>
+		<h3>Controller method</h3>
+		<p>
+			A controller can also have method (variables and fuctions)
+		</p>
+		<!-- <div ng-app="myApp" ng-controller="myCtrl">
+			<p>firstName : <input type="text" ng-model="firstName"></p>
+			<p>lastName : <input type="text" ng-model="lastName"></p>
+			<p>
+				fullName: {{fullName()}}
+			</p>
+		</div>
+		<script>
+			var app = angular.module('myApp',[]);
+			app.controller('myCtrl',function($scope){
+				$scope.firstName = 'dat';
+				$scope.lastName = 'feed';
+				$scope.fullName = function(){
+					return $scope.firstName + ' ' + $scope.lastName;
+				}
+			});
+		</script> -->
+	</div>
+	<div>
+		<h3>Loop</h3>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<ul>
+				<li ng-repeat="x in names">
+					{{x.name + ' ' + x.country}}
+				</li>
+			</ul>
+		</div>
+		<script>
+			var app = angular.module('myApp',[]);
+			app.controller('myCtrl',function($scope){
+				$scope.names = [
+					{name:'dat',country:'vietnam'},
+					{name:'trang',country:'China'},
+					{name:'ngoc',country:'French'}
+				]
+			});
+		</script>
+	</div>
+</body>
+</html>
