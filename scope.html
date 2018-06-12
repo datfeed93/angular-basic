@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Scope</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<h1>Scope</h1>
+	<ul>
+		<li>
+			The scope is binding part between the HTML(view) and Controller
+		</li>
+		<li>
+			The scope is an object with available properties and methods
+		</li>
+		<li>
+			The scope is available for both the view and controller
+		</li>
+	</ul>
+	<div>
+		<h2>Understanding the Scope</h2>
+		<p>
+			If we consider an AngularJs application to consist of:
+		</p>
+		<ul>
+			<li>
+				<strong>View:</strong> which is the HTML
+			</li>
+			<li>
+				<strong>Model:</strong> which is data available for the curent view
+			</li>
+			<li>
+				<strong>Controller: </strong> which is Javascript function that makes/changes/removes/controls data
+			</li>
+		</ul>
+		<p>
+			The scope is model
+		</p>
+	</div>
+
+	<div>
+		<h2>Root Scope</h2>
+		<ul>
+			<li>
+				All aplication have a <strong>$rootScope</strong> which is the scope created on the HTML element that contains the <strong>ng-app</strong> directive
+			</li>
+			<li>
+				The rootScope is available in the entire application
+			</li>
+			<li>
+				If a variable has the same name in both the current scope and in the rootScope, the application uses the one in the current scope
+			</li>
+		</ul>
+		<div ng-app="myApp">
+			<p>{{color}}</p>
+			<div ng-controller="myCtrl">
+				<p>{{color}}</p>
+			</div>
+			<p>{{color}}</p>
+		</div>
+		<script>
+			var app = angular.module('myApp',[]);
+			app.run(function($rootScope){
+				$rootScope.color = 'green';
+			});
+			app.controller('myCtrl',function($scope){
+				$scope.color = 'red';
+			});
+		</script>
+	</div>
+</body>
+</html>
