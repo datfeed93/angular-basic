@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Filter</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<h1>Filter</h1>
+	<p>AngularJs provides filters to transform data</p>
+	<ul>
+		<li>
+			<strong>currency</strong> Format number to currency format 
+		</li>
+		<li>
+			<strong>date</strong> Format a date to a specified format
+		</li>
+		<li>
+			<strong>filter</strong> Select a subset of items from an array
+		</li>
+		<li>
+			<strong>json</strong> Format an object to a JSON string
+		</li>
+		<li>
+			<strong>limitTo</strong> Limits an array/string, into a specified number of elements/characters 
+		</li>
+		<li>
+			<strong>lowercase</strong> Format a string to lower case
+		</li>
+		<li>
+			<strong>number</strong> Format number to a string
+		</li>
+		<li>
+			<strong>orderBy</strong> Orders an array by an expression
+		</li>
+		<li>
+			<strong>uppercase</strong> Format a string to upper case
+		</li>
+	</ul>
+	<div>
+		<h2>Adding filters to expressions</h2>
+		<p>
+			Filters can added to expression using the pipe character <strong>|</strong>
+		</p>
+		<!-- <div ng-app="myApp" ng-controller="myCtrl">
+			{{firstName | uppercase}}
+		</div> -->
+		<!-- <script>
+			var app = angular.module('myApp',[]);
+			app.controller('myCtrl',function($scope){
+				$scope.firstName = 'dat';
+				$scope.lastName = 'feed';
+			});
+		</script> -->
+	</div>
+	<div>
+		<h2>Adding filter to Directives</h2>
+		<p>
+			Filters are added to directives, like <strong>ng-repeat</strong> 
+		</p>
+		<!-- <div ng-app="myApp" ng-controller="myCtrl">
+			<ul>
+				<li ng-repeat="x in names | orderBy:'country'">
+					{{x.name + ' ' + x.country}}
+				</li>
+			</ul>
+		</div>
+		<script>
+			var app = angular.module('myApp',[]);
+			app.controller('myCtrl',function($scope){
+				$scope.names = [
+			        {name:'Jani',country:'Norway'},
+			        {name:'Carl',country:'Sweden'},
+			        {name:'Margareth',country:'England'},
+			        {name:'Hege',country:'Norway'},
+			        {name:'Joe',country:'Denmark'},
+			        {name:'Gustav',country:'Sweden'},
+			        {name:'Birgit',country:'Denmark'},
+			        {name:'Mary',country:'England'},
+			        {name:'Kai',country:'Norway'}
+		        ];
+			});
+		</script> -->
+	</div>
+	<!-- <div>
+		<h2>Filter filter</h2>
+		<p>
+			The <strong>filter</strong> filter selects subset of a array
+
+		</p>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<input type="text" ng-model="test">
+			<ul>
+				<li ng-repeat="x in names | filter : test">
+					{{x}}
+				</li>
+			</ul>
+		</div>
+		<script>
+			var app = angular.module('myApp',[]);
+			app.controller('myCtrl',function($scope){
+				$scope.names = [
+			        'Jani',
+			        'Carl',
+			        'Margareth',
+			        'Hege',
+			        'Joe',
+			        'Gustav',
+			        'Birgit',
+			        'Mary',
+			        'Kai'
+		        ];
+			});
+		</script>
+	</div> -->
+
+	<div>
+		<h2>
+			Sort an array based on user input
+		</h2>
+		<table border="1" width="100%" ng-app="myApp" ng-controller="myCtrl">
+			<tr>
+				<th ng-click="orderByMe('name')">
+					Name
+				</th>
+				<th ng-click="orderByMe('country')">
+					Country
+				</th>
+			</tr>
+			<tr ng-repeat="x in names | orderBy:myOrderBy">
+				<td ng-click="orderByMe('name')">
+					{{x.name}}
+				</td>
+				<td ng-click="orderByMe('country')">
+					{{x.country}}
+				</td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		var app = angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope){
+			$scope.names = [
+			    {name:'Jani',country:'Norway'},
+			    {name:'Carl',country:'Sweden'},
+			    {name:'Margareth',country:'England'},
+			    {name:'Hege',country:'Norway'},
+			    {name:'Joe',country:'Denmark'},
+			    {name:'Gustav',country:'Sweden'},
+			    {name:'Birgit',country:'Denmark'},
+			    {name:'Mary',country:'England'},
+			    {name:'Kai',country:'Norway'}
+			];
+			$scope.orderByMe = function(x){
+				$scope.myOrderBy = x;
+			}
+		});
+	</script>
+</body>
+</html>
